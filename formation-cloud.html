@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation - Méthodes de Déploiement Cloud</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h1>☁️ Cloud Academy</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#modules">Modules</a></li>
+                    <li><a href="#ressources">Ressources</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section id="accueil" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Formation Complète</h1>
+                <h2>Méthodes de Déploiement sur le Cloud</h2>
+                <p>Maîtrisez les techniques modernes de déploiement cloud avec Azure, AWS et Google Cloud</p>
+                <a href="#modules" class="btn-primary">Commencer la formation</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="intro" class="section">
+        <div class="container">
+            <h2 class="section-title">Introduction au Déploiement Cloud</h2>
+            <div class="intro-grid">
+                <div class="intro-card">
+                    <div class="icon">🚀</div>
+                    <h3>Pourquoi le Cloud ?</h3>
+                    <p>Scalabilité, disponibilité et réduction des coûts d'infrastructure</p>
+                </div>
+                <div class="intro-card">
+                    <div class="icon">⚡</div>
+                    <h3>Déploiement Rapide</h3>
+                    <p>Automatisation et CI/CD pour des déploiements en quelques minutes</p>
+                </div>
+                <div class="intro-card">
+                    <div class="icon">🔒</div>
+                    <h3>Sécurité Avancée</h3>
+                    <p>Protection des données et conformité aux standards internationaux</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="modules" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Modules de Formation</h2>
+            
+            <!-- Module 1 -->
+            <div class="module-card">
+                <div class="module-header">
+                    <span class="module-number">Module 1</span>
+                    <h3>Déploiement Manuel</h3>
+                    <span class="badge beginner">Débutant</span>
+                </div>
+                <div class="module-content">
+                    <p class="module-description">Découvrez les bases du déploiement manuel sur les plateformes cloud principales.</p>
+                    <div class="methods-grid">
+                        <div class="method-item">
+                            <h4>🌐 Azure Portal</h4>
+                            <ul>
+                                <li>Création de ressources via l'interface web</li>
+                                <li>Configuration des App Services</li>
+                                <li>Déploiement de conteneurs</li>
+                                <li>Gestion des bases de données</li>
+                            </ul>
+                            <div class="code-example">
+                                <pre><code>// Déploiement via Azure Portal
+1. Créer une ressource
+2. Sélectionner "Web App"
+3. Configurer les paramètres
+4. Déployer depuis Git/ZIP</code></pre>
+                            </div>
+                        </div>
+                        <div class="method-item">
+                            <h4>☁️ AWS Console</h4>
+                            <ul>
+                                <li>Utilisation de la console AWS</li>
+                                <li>Déploiement sur EC2</li>
+                                <li>Configuration d'Elastic Beanstalk</li>
+                                <li>Gestion des buckets S3</li>
+                            </ul>
+                        </div>
+                        <div class="method-item">
+                            <h4>🔵 Google Cloud Console</h4>
+                            <ul>
+                                <li>Interface Google Cloud Platform</li>
+                                <li>App Engine deployment</li>
+                                <li>Cloud Run configuration</li>
+                                <li>Kubernetes Engine basics</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 2 -->
+            <div class="module-card">
+                <div class="module-header">
+                    <span class="module-number">Module 2</span>
+                    <h3>CLI et Scripts</h3>
+                    <span class="badge intermediate">Intermédiaire</span>
+                </div>
+                <div class="module-content">
+                    <p class="module-description">Automatisez vos déploiements avec les outils en ligne de commande.</p>
+                    <div class="methods-grid">
+                        <div class="method-item">
+                            <h4>💻 Azure CLI</h4>
+                            <div class="code-example">
+                                <pre><code># Connexion à Azure
+az login
+
+# Créer un groupe de ressources
+az group create --name myResourceGroup --location eastus
+
+# Créer une web app
+az webapp create --resource-group myResourceGroup \
+  --plan myAppServicePlan --name myUniqueAppName
+
+# Déployer depuis Git
+az webapp deployment source config \
+  --name myUniqueAppName --resource-group myResourceGroup \
+  --repo-url https://github.com/user/repo --branch main</code></pre>
+                            </div>
+                        </div>
+                        <div class="method-item">
+                            <h4>⚙️ AWS CLI</h4>
+                            <div class="code-example">
+                                <pre><code># Configuration AWS
+aws configure
+
+# Créer un bucket S3
+aws s3 mb s3://my-bucket-name
+
+# Déployer sur Elastic Beanstalk
+aws elasticbeanstalk create-application \
+  --application-name my-app
+
+# Upload fichiers
+aws s3 sync ./build s3://my-bucket-name</code></pre>
+                            </div>
+                        </div>
+                        <div class="method-item">
+                            <h4>🛠️ gcloud CLI</h4>
+                            <div class="code-example">
+                                <pre><code># Initialiser gcloud
+gcloud init
+
+# Déployer sur App Engine
+gcloud app deploy
+
+# Déployer sur Cloud Run
+gcloud run deploy my-service \
+  --image gcr.io/project/image \
+  --platform managed</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 3 -->
+            <div class="module-card">
+                <div class="module-header">
+                    <span class="module-number">Module 3</span>
+                    <h3>Infrastructure as Code (IaC)</h3>
+                    <span class="badge intermediate">Intermédiaire</span>
+                </div>
+                <div class="module-content">
+                    <p class="module-description">Gérez votre infrastructure comme du code pour une reproductibilité parfaite.</p>
+                    <div class="methods-grid">
+                        <div class="method-item">
+                            <h4>📄 Azure ARM Templates</h4>
+                            <div class="code-example">
+                                <pre><code>{
+  "$schema": "https://schema.management.azure.com/...",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Web/sites",
+      "apiVersion": "2021-02-01",
+      "name": "[parameters('webAppName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms')]"
+      }
+    }
+  ]
+}</code></pre>
+                            </div>
+                        </div>
+                        <div class="method-item">
+                            <h4>🔷 Bicep (Azure)</h4>
+                            <div class="code-example">
+                                <pre><code>param location string = 'eastus'
+param appName string
+
+resource appService 'Microsoft.Web/sites@2021-02-01' = {
+  name: appName
+  location: location
+  properties: {
+    serverFarmId: appServicePlan.id
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                        <div class="method-item">
+                            <h4>🌍 Terraform</h4>
+                            <div class="code-example">
+                                <pre><code>provider "azurerm" {
+  features {}
+}
+
+resource "azurerm_app_service" "main" {
+  name                = "my-app-service"
+  location            = "East US"
+  resource_group_name = azurerm_resource_group.main.name
+  app_service_plan_id = azurerm_app_service_plan.main.id
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 4 -->
+            <div class="module-card">
+                <div class="module-header">
+                    <span class="module-number">Module 4</span>
+                    <h3>Containerisation</h3>
+                    <span class="badge intermediate">Intermédiaire</span>
+                </div>
+                <div class="module-content">
+                    <p class="module-description">Déployez vos applications dans des conteneurs pour plus de portabilité.</p>
+                    <div class="methods-grid">
+                        <div class="method-item">
+                            <h4>🐳 Docker</h4>
+                            <div class="code-example">
+                                <pre><code># Dockerfile
+FROM node:16-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 3000
+CMD ["npm", "start"]
+
+# Build et push
+docker build -t myapp:latest .
+docker tag myapp:latest myregistry.azurecr.io/myapp:latest
+docker push myregistry.azurecr.io/myapp:latest</code></pre>
+                            </div>
+                        </div>
+                        <div class="method-item">
+                            <h4>📦 Azure Container Instances</h4>
+                            <div class="code-example">
+                                <pre><code># Déployer un conteneur
+az container create \
+  --resource-group myResourceGroup \
+  --name mycontainer \
+  --image myregistry.azurecr.io/myapp:latest \
+  --dns-name-label myapp-dns \
+  --ports 80</code></pre>
+                            </div>
+                        </div>
+                        <div class="method-item">
+                            <h4>☸️ Kubernetes (AKS)</h4>
+                            <div class="code-example">
+                                <pre><code># deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: myapp
+        image: myregistry.azurecr.io/myapp:latest
+        ports:
+        - containerPort: 80</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 5 -->
+            <div class="module-card">
+                <div class="module-header">
+                    <span class="module-number">Module 5</span>
+                    <h3>CI/CD Pipeline</h3>
+                    <span class="badge advanced">Avancé</span>
+                </div>
+                <div class="module-content">
+                    <p class="module-description">Automatisez complètement vos déploiements avec des pipelines CI/CD.</p>
+                    <div class="methods-grid">
+                        <div class="method-item">
+                            <h4>🔄 GitHub Actions</h4>
+                            <div class="code-example">
+                                <pre><code>name: Deploy to Azure
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      
+      - name: Build and push Docker image
+        run: |
+          docker build -t myapp .
+          docker push myregistry.azurecr.io/myapp:latest
+      
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'my-web-app'
+          images: 'myregistry.azurecr.io/myapp:latest'</code></pre>
+                            </div>
+                        </div>
+                        <div class="method-item">
+                            <h4>🔧 Azure DevOps</h4>
+                            <div class="code-example">
+                                <pre><code>trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: Docker@2
+  inputs:
+    containerRegistry: 'myRegistry'
+    repository: 'myapp'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+
+- task: AzureWebAppContainer@1
+  inputs:
+    azureSubscription: 'mySubscription'
+    appName: 'my-web-app'
+    containers: 'myregistry.azurecr.io/myapp:latest'</code></pre>
+                            </div>
+                        </div>
+                        <div class="method-item">
+                            <h4>🚀 GitLab CI/CD</h4>
+                            <div class="code-example">
+                                <pre><code>stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script:
+    - docker build -t myapp .
+    - docker push myregistry.azurecr.io/myapp:latest
+
+deploy:
+  stage: deploy
+  script:
+    - az login --service-principal
+    - az webapp config container set
+      --name my-web-app
+      --resource-group myRG
+      --docker-custom-image-name myregistry.azurecr.io/myapp:latest</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 6 -->
+            <div class="module-card">
+                <div class="module-header">
+                    <span class="module-number">Module 6</span>
+                    <h3>Déploiement Serverless</h3>
+                    <span class="badge advanced">Avancé</span>
+                </div>
+                <div class="module-content">
+                    <p class="module-description">Déployez sans gérer de serveurs avec les architectures serverless.</p>
+                    <div class="methods-grid">
+                        <div class="method-item">
+                            <h4>⚡ Azure Functions</h4>
+                            <div class="code-example">
+                                <pre><code>// function.json
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["get", "post"]
+    }
+  ]
+}
+
+// Déploiement
+func azure functionapp publish myFunctionApp</code></pre>
+                            </div>
+                        </div>
+                        <div class="method-item">
+                            <h4>λ AWS Lambda</h4>
+                            <div class="code-example">
+                                <pre><code>exports.handler = async (event) => {
+    return {
+        statusCode: 200,
+        body: JSON.stringify('Hello from Lambda!')
+    };
+};
+
+# Déploiement avec SAM
+sam deploy --guided</code></pre>
+                            </div>
+                        </div>
+                        <div class="method-item">
+                            <h4>🔥 Google Cloud Functions</h4>
+                            <div class="code-example">
+                                <pre><code>exports.helloWorld = (req, res) => {
+  res.send('Hello, World!');
+};
+
+# Déploiement
+gcloud functions deploy helloWorld \
+  --runtime nodejs16 \
+  --trigger-http \
+  --allow-unauthenticated</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="ressources" class="section">
+        <div class="container">
+            <h2 class="section-title">Ressources Complémentaires</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">📚</div>
+                    <h3>Documentation Officielle</h3>
+                    <ul>
+                        <li><a href="https://docs.microsoft.com/azure" target="_blank">Azure Docs</a></li>
+                        <li><a href="https://docs.aws.amazon.com" target="_blank">AWS Documentation</a></li>
+                        <li><a href="https://cloud.google.com/docs" target="_blank">Google Cloud Docs</a></li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">🎓</div>
+                    <h3>Certifications</h3>
+                    <ul>
+                        <li>Microsoft Azure Administrator (AZ-104)</li>
+                        <li>AWS Certified Solutions Architect</li>
+                        <li>Google Cloud Professional Cloud Architect</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">🛠️</div>
+                    <h3>Outils Recommandés</h3>
+                    <ul>
+                        <li>Visual Studio Code avec extensions cloud</li>
+                        <li>Azure DevOps / GitHub Actions</li>
+                        <li>Docker Desktop</li>
+                        <li>Terraform / Pulumi</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">💡</div>
+                    <h3>Bonnes Pratiques</h3>
+                    <ul>
+                        <li>Utiliser le contrôle de version (Git)</li>
+                        <li>Implémenter des tests automatisés</li>
+                        <li>Surveiller les coûts cloud</li>
+                        <li>Sécuriser les secrets et credentials</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="comparison" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Tableau Comparatif des Méthodes</h2>
+            <div class="table-responsive">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Méthode</th>
+                            <th>Niveau</th>
+                            <th>Automatisation</th>
+                            <th>Temps de Setup</th>
+                            <th>Flexibilité</th>
+                            <th>Cas d'Usage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Déploiement Manuel</td>
+                            <td><span class="badge beginner">Débutant</span></td>
+                            <td>❌ Faible</td>
+                            <td>⚡ Rapide</td>
+                            <td>⭐⭐</td>
+                            <td>Prototypes, tests</td>
+                        </tr>
+                        <tr>
+                            <td>CLI/Scripts</td>
+                            <td><span class="badge intermediate">Intermédiaire</span></td>
+                            <td>✅ Moyenne</td>
+                            <td>⚡⚡ Moyen</td>
+                            <td>⭐⭐⭐</td>
+                            <td>Déploiements répétitifs</td>
+                        </tr>
+                        <tr>
+                            <td>Infrastructure as Code</td>
+                            <td><span class="badge intermediate">Intermédiaire</span></td>
+                            <td>✅✅ Élevée</td>
+                            <td>⚡⚡⚡ Long</td>
+                            <td>⭐⭐⭐⭐</td>
+                            <td>Production, multi-environnements</td>
+                        </tr>
+                        <tr>
+                            <td>Containerisation</td>
+                            <td><span class="badge intermediate">Intermédiaire</span></td>
+                            <td>✅✅ Élevée</td>
+                            <td>⚡⚡ Moyen</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                            <td>Microservices, portabilité</td>
+                        </tr>
+                        <tr>
+                            <td>CI/CD Pipeline</td>
+                            <td><span class="badge advanced">Avancé</span></td>
+                            <td>✅✅✅ Très élevée</td>
+                            <td>⚡⚡⚡ Long</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                            <td>DevOps, déploiement continu</td>
+                        </tr>
+                        <tr>
+                            <td>Serverless</td>
+                            <td><span class="badge advanced">Avancé</span></td>
+                            <td>✅✅ Élevée</td>
+                            <td>⚡ Rapide</td>
+                            <td>⭐⭐⭐</td>
+                            <td>Event-driven, APIs</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Prêt à Maîtriser le Cloud ?</h2>
+                <p>Rejoignez des milliers d'étudiants qui ont transformé leur carrière</p>
+                <div class="cta-buttons">
+                    <a href="#modules" class="btn-primary">Commencer Maintenant</a>
+                    <a href="#ressources" class="btn-secondary">Télécharger les Ressources</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Cloud Academy</h4>
+                    <p>Formation professionnelle en déploiement cloud</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="#modules">Modules</a></li>
+                        <li><a href="#ressources">Ressources</a></li>
+                        <li><a href="#comparison">Comparaison</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>Email: contact@cloudacademy.com</li>
+                        <li>Tél: +33 1 23 45 67 89</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Cloud Academy. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(44, 62, 80, 0.95)';
+                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.backgroundColor = '#2c3e50';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
