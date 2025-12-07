@@ -1,0 +1,41 @@
+services:
+  db:
+    image: mariadb:10.5
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./database/schema_records.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - app-network
+
+  fastapi:
+    image: startlingadama/fastapi-mysql-connector:latest
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    entrypoint: ["python", "-m", "uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
+    depends_on:
+      - db
+    networks:
+      - app-network
+
+  react:
+    image: node:20-alpine 
+    working_dir: /app
+    volumes:
+      - ./:/app
+    command: sh -c "npm install --silent && npm run dev -- --host 0.0.0.0"
+    ports:
+      - "80:5173"
+    networks:
+      - app-network
+
+volumes:
+  db-data:
+networks:
+  app-network:
+    driver: bridge
