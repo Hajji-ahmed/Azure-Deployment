@@ -24,7 +24,7 @@ const Login = () => {
         password: password 
       });
 
-      const response = await fetch(`http://fastapi:8000/user?${params.toString()}`, {
+      const response = await fetch(`http://localhost/backend/user?${params.toString()}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
